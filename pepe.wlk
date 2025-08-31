@@ -1,30 +1,43 @@
 object pepe {
-  var rol = gerente
-  var bonoPorResultado = nulo
+  var property rol = gerente
+  var property bonoPorResultado = porcentaje
+  var property bonoPorPresentismo = normal
+  var property faltas = 0
 
-   method sueldo() = rol.neto() + bonoPorResultado()
+   method sueldo() = self.neto() + bonoPorResultado.valor(self) + bonoPorPresentismo.valor(self)
 
-   method rol(rolNuevo) {
-     rol = rolNuevo
-   }
-
-   method cambiarResultado(resultadoNuevo){
-    bonoPorResultado = resultadoNuevo
-   }
-   
+   method neto() = rol.neto()
 }
 //self.neto() en el objeto pepe, el intérprete busca dentro del objeto pepe un método llamado neto
 
+object normal {
+  method valor(empleado) {
+    if (empleado.faltas() == 0){
+      2000
+    }
+    else if (empleado.faltas() == 1){ 
+      1000
+    } else {
+      0
+    }
+  
+}
+
+object ajuste {
+  method valor(empleado) = 
+  
+}
+
 object porcentaje {
-  method porcentaje() = neto * 10 / 100
+  method valor(empleado) = empleado.neto() * 10 / 100
 }
 
 object montoFijo {
-  method montoFijo() = 800
+  method valor(empleado) = 800
 }
 
 object nulo {
-  method nulo() = 0
+  method valor(empleado) = 0
 }
 
 object gerente {
