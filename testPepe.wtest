@@ -1,9 +1,17 @@
 import pepe.*
 
-describe "Sueldo Pepe" {
+describe "primer sueldo de Pepe" {
 	
-	test "Test 1" {
-		//TODO: Implementame
+	test "Pepe es cadete" {
+		pepe.rol(cadete)
+
+		assert.equals(20000, pepe.sueldo())
+	}
+
+	test "bono resultado por porcentaje" {
+	  pepe.bonoPorResultado(montoFijo)
+
+	  assert.equals(22000, pepe.sueldo())
 	}
 
 	
