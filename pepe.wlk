@@ -20,12 +20,28 @@ object normal {
     } else {
       0
     }
-  
+  }
 }
 
 object ajuste {
-  method valor(empleado) = 
-  
+  method valor(empleado) {
+    if (empleado.faltas() == 0){
+      100
+    } else{
+      0
+    }
+  } 
+}
+
+object demagogico {
+  method valor(empleado) {
+    if (empleado.neto() < 1800){
+      500
+    }
+    else{
+      300
+    }
+  }  
 }
 
 object porcentaje {
