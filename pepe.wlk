@@ -1,7 +1,7 @@
 object pepe {
   var property rol = gerente
-  var property bonoPorResultado = porcentaje
-  var property bonoPorPresentismo = normal
+  var property bonoPorResultado = nulo
+  var property bonoPorPresentismo = nulo
   var property faltas = 0
 
    method sueldo() = self.neto() + bonoPorResultado.valor(self) + bonoPorPresentismo.valor(self)
@@ -12,35 +12,23 @@ object pepe {
 
 object normal {
   method valor(empleado) {
-    if (empleado.faltas() == 0){
-      2000
-    }
-    else if (empleado.faltas() == 1){ 
-      1000
-    } else {
-      0
-    }
+    if(empleado.faltas() == 0) return 2000
+    if(empleado.faltas() == 1) return 1000
+    return 0   // <-- caso por defecto
   }
 }
 
 object ajuste {
   method valor(empleado) {
-    if (empleado.faltas() == 0){
-      100
-    } else{
-      0
-    }
+    if (empleado.faltas() == 0) return 100
+    return 0
   } 
 }
 
 object demagogico {
   method valor(empleado) {
-    if (empleado.neto() < 1800){
-      500
-    }
-    else{
-      300
-    }
+    if (empleado.neto() < 1800) return 500
+    else return 300 
   }  
 }
 
@@ -66,3 +54,31 @@ object cadete {
 
 //referencia apunta a un objeto 
 //todo es un objeto
+
+
+object sofia {
+  var property rol = gerente
+  var property bonoPorResultado = nulo
+
+  method sueldo() = self.neto() + bonoPorResultado.valor(self)
+
+  method neto() = rol.neto() * 1.3
+}
+
+object vendedor {
+  method neto() = 16000
+
+  method activarAumentoPorMuchasVentas() {
+    self.neto() * 1.25
+  }
+
+  method desactivarAumentoPorMuchasVentas() {
+    if(self.neto() == self.neto() * 1.25){
+        self.neto()
+    }
+  }
+}
+
+object medioTiempo {
+  
+}

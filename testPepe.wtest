@@ -4,14 +4,18 @@ describe "primer sueldo de Pepe" {
 	
 	test "Pepe es cadete" {
 		pepe.rol(cadete)
-
 		assert.equals(20000, pepe.sueldo())
 	}
 
 	test "bono resultado por porcentaje" {
 	  pepe.bonoPorResultado(montoFijo)
+	  assert.equals(15800, pepe.sueldo())
+	}
 
-	  assert.equals(22000, pepe.sueldo())
+	test "bono por presentismo" {
+	  pepe.bonoPorPresentismo(normal)
+	  pepe.faltas(3)
+	  assert.equals(15000, pepe.sueldo())
 	}
 
 	
