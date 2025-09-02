@@ -68,17 +68,16 @@ object sofia {
 object vendedor {
   method neto() = 16000
 
-  method activarAumentoPorMuchasVentas() {
-    self.neto() * 1.25
-  }
+  method valorAumentoPorMuchasVentas() = self.neto() * 1.25
+  //valor es consulta 
 
   method desactivarAumentoPorMuchasVentas() {
-    if(self.neto() == self.neto() * 1.25){
+    if(self.valorAumentoPorMuchasVentas() == self.neto() * 1.25){
         self.neto()
     }
   }
 }
 
 object medioTiempo {
-  
+  method neto(rol) =  rol.neto() / 2
 }
