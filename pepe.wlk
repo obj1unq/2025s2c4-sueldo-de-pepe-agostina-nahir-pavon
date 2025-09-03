@@ -1,4 +1,6 @@
 object pepe {
+
+  //a todos los atributos los quiero ver y modificar
   var property rol = gerente
   var property bonoPorResultado = nulo
   var property bonoPorPresentismo = nulo
@@ -27,7 +29,7 @@ object ajuste {
 
 object demagogico {
   method valor(empleado) {
-    if (empleado.neto() < 1800) return 500
+    if (empleado.neto() < 18000) return 500
     else return 300 
   }  
 }
@@ -55,7 +57,6 @@ object cadete {
 //referencia apunta a un objeto 
 //todo es un objeto
 
-
 object sofia {
   var property rol = gerente
   var property bonoPorResultado = nulo
@@ -78,6 +79,29 @@ object vendedor {
   }
 }
 
+//Estoy en duda con esta implementacion, de esta forma tendria que cambiar la categoria de  medio tiempo cada de vez que cambien de empleado 
 object medioTiempo {
-  method neto(rol) =  rol.neto() / 2
+  var property categoriaBase = gerente
+  method neto() = categoriaBase.neto() / 2
 }
+
+object roque {
+  var property bonoPorResultado = nulo
+
+  method sueldo() = self.neto() + bonoPorResultado.valor(self)  + 9000 
+
+  method neto() = 28000
+  
+}
+
+object ernesto {
+  var property bonoPorPresentismo = nulo
+  var property faltas = 0
+  var property compañero = sofia
+
+  method sueldo() = self.neto() + bonoPorPresentismo.valor(self)
+
+  method neto() = compañero.neto()
+}
+
+
