@@ -54,6 +54,17 @@ object cadete {
   method neto() = 20000
 }
 
+//Sigo en duda con esta implementacion, de esta forma tendria que cambiar la categoria de  medio tiempo cada de vez que cambie de empleado
+object medioTiempo {
+  var rol = gerente
+
+  method categoriaBase(_rol) {
+    rol = _rol
+  }
+
+  method neto() = rol.neto() / 2
+}
+
 //referencia apunta a un objeto 
 //todo es un objeto
 
@@ -77,12 +88,6 @@ object vendedor {
         self.neto()
     }
   }
-}
-
-//Estoy en duda con esta implementacion, de esta forma tendria que cambiar la categoria de  medio tiempo cada de vez que cambien de empleado 
-object medioTiempo {
-  var property categoriaBase = gerente
-  method neto() = categoriaBase.neto() / 2
 }
 
 object roque {

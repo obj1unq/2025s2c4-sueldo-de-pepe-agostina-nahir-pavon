@@ -6,10 +6,10 @@ test "categoria de medio tiempo es cadete" {
 }
 
 test "el sueldo de pepe es de 11500" {
-	medioTiempo.categoriaBase(cadete)
-	pepe.rol(medioTiempo) 10000
-	pepe.bonoPorResultado(porcentaje) 11000
-	pepe.bonoPorPresentismo(demagogico)
+	medioTiempo.categoriaBase(cadete) 
+	pepe.rol(medioTiempo)
+	pepe.bonoPorResultado(porcentaje) 
+	pepe.bonoPorPresentismo(demagogico) 
 	pepe.faltas(1)
 	assert.equals(11500, pepe.sueldo())
 }
