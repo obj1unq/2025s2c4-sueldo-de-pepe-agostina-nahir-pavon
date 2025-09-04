@@ -1,0 +1,26 @@
+import pepe.*
+
+test "categoria de medio tiempo es cadete" {
+	medioTiempo.categoriaBase(cadete)
+	assert.equals(10000, medioTiempo.neto())
+}
+
+test "el sueldo de pepe es de 11500" {
+	medioTiempo.categoriaBase(cadete) 
+	pepe.rol(medioTiempo)
+	pepe.bonoPorResultado(porcentaje) 
+	pepe.bonoPorPresentismo(demagogico) 
+	pepe.faltas(1)
+	assert.equals(11500, pepe.sueldo())
+}
+
+test "el sueldo de roque es de 37800" {
+	roque.bonoPorResultado(montoFijo)
+	assert.equals(37800, roque.sueldo())
+}
+
+test "el sueldo de ernesto es de 15100" {
+	ernesto.compañero(pepe)
+	ernesto.bonoPorPresentismo(ajuste)
+	assert.equals(15100, ernesto.sueldo())
+}
